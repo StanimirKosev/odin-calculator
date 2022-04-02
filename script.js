@@ -32,4 +32,21 @@ function operate(operator,a,b){
 
 }
 
-console.log(operate('+',5,5));
+
+const calc = document.getElementById('calc');
+
+function calculate(sq){
+    for (let i = 0 ; i < sq ; i++){
+        const div = document.createElement('div');
+        calc.appendChild(div).className = 'div1';
+    };
+};
+calculate(15);
+
+const txtNClear = document.getElementById('textNclear');
+
+        const text = document.createElement('div');
+        txtNclear.appendChild(text).className = 'text';
+
+        const clear = document.createElement('div');
+        txtNclear.appendChild(clear).className = 'allClear';
