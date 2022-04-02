@@ -49,7 +49,7 @@ const calc = document.getElementById('calc');
 
     const divide = document.createElement('div');
     divide.textContent = '/';
-    calc.appendChild(divide).className = 'div1';
+    calc.appendChild(divide).className = 'operators';
 
     const four = document.createElement('div');
     four.textContent = '4';
@@ -65,7 +65,7 @@ const calc = document.getElementById('calc');
 
     const asteriks = document.createElement('div');
     asteriks.textContent = '*';
-    calc.appendChild(asteriks).className = 'div1';
+    calc.appendChild(asteriks).className = 'operators';
     
     const three = document.createElement('div');
     three.textContent = '3';
@@ -81,26 +81,30 @@ const calc = document.getElementById('calc');
 
     const minus = document.createElement('div');
     minus.textContent = '-';
-    calc.appendChild(minus).className = 'div1';
+    calc.appendChild(minus).className = 'operators';
     
     const zero = document.createElement('div');
     zero.textContent = '0';
     calc.appendChild(zero).className = 'div1';
 
+    const decimal = document.createElement('div');
+    decimal.textContent = '.';
+    calc.appendChild(decimal).className = 'div1';
+
     const equals = document.createElement('div');
     equals.textContent = '=';
-    calc.appendChild(equals).className = 'div1';
-
+    calc.appendChild(equals).className = 'equals div1';
+    
     const plus = document.createElement('div');
     plus.textContent = '+';
-    calc.appendChild(plus).className = 'div1';
+    calc.appendChild(plus).className = 'operators';
 
 
 const txtNClear = document.getElementById('textNclear');
 
     const clear = document.createElement('div');
     clear.textContent = 'AC';
-    txtNclear.appendChild(clear).className = 'allClear';    
+    txtNclear.appendChild(clear).className = 'allClear operators';    
 
     const text = document.createElement('div');
     txtNclear.appendChild(text).className = 'text';

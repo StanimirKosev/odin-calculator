@@ -1,45 +1,53 @@
+:root{
+    --graniteGray:#5F6368;
+    --oldSilver:#80868B;
+    --arsenic:#3C4043;
+    --blueberry:#4285F4;
+
+}
 body{
     background-color: #FF6F61;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#container{ /** only for grid */
+#container{ 
+}
     
-       
-       
-    }
-    #txtNclear{
+    #txtNclear{ 
       display: flex;
       flex-direction: row-reverse;
-    
     }
-
-        .text{
-            width: 50px;
-            height: 50px;
-            border:1px solid black;
-            background: transparent;
-            background-color: white;
-        }
-
-        .allClear{
-            width: 50px;
-            height: 50px;
-            border:1px solid black;
-            background: transparent;
-            background-color: white;
-        }
-
-    
     #calc{
         display: grid; 
         grid-template-columns: repeat(4,2fr);
     }
-        .div1{
-            width: 50px;
+        .operators,
+        .text,
+        .div1,
+        .allClear{
+            width: 80px;
             height: 50px;
-            border:1px solid black;
-            background: transparent;
-            background-color: white;
-}
+            border: 1px solid black;
+            border-radius: 8px;
+            background-color: var(--arsenic);
+            border-color: var(--oldSilver);
+            text-align: center;
+            line-height: 50px;
+            color:white;
+        }
+
+        .text{
+            width: 245px;
+           }
+
+        .div1{
+            background-color: var(--oldSilver);
+            border-color: var(--arsenic);
+        }
+        .equals{
+            background-color: var(--blueberry);
+            color: var(--arsenic);
+            font-weight: bold;
+            font-size: 25px;
+        }
