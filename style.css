@@ -3,51 +3,56 @@
     --oldSilver:#80868B;
     --arsenic:#3C4043;
     --blueberry:#4285F4;
+}
 
-}
 body{
-    background-color: #FF6F61;
+    background-color:var(--graniteGray);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    margin-top: 250px;
 }
-#container{ 
+
+#txtNclear{ 
+    display: grid;
+    grid-template-columns:235px 75px;
+    grid-gap:5px;
+    margin:5px;
 }
     
-    #txtNclear{ 
-      display: flex;
-      flex-direction: row-reverse;
+#calc{
+    display: grid; 
+    grid-template-columns: repeat(4,75px);
+    grid-gap:5px;
+}
+        
+    .operators,
+    .text,
+    .div1,
+    .allClear{
+        border: 1px solid black; 
+        border-radius: 8px; 
+        background-color: var(--arsenic);
+        border-color: var(--oldSilver);            
+        text-align: center;    
+        line-height: 50px;
+        color:white; 
+        font-size: 20px;
+        font-family: Helvetica, sans-serif;
     }
-    #calc{
-        display: grid; 
-        grid-template-columns: repeat(4,2fr);
+    .text{
+        text-align: right;
+        font-size: 25px;
     }
-        .operators,
-        .text,
-        .div1,
-        .allClear{
-            width: 80px;
-            height: 50px;
-            border: 1px solid black;
-            border-radius: 8px;
-            background-color: var(--arsenic);
-            border-color: var(--oldSilver);
-            text-align: center;
-            line-height: 50px;
-            color:white;
-        }
-
-        .text{
-            width: 245px;
-           }
-
-        .div1{
-            background-color: var(--oldSilver);
-            border-color: var(--arsenic);
-        }
-        .equals{
-            background-color: var(--blueberry);
-            color: var(--arsenic);
-            font-weight: bold;
-            font-size: 25px;
-        }
+    
+    .div1{
+        background-color: var(--oldSilver);
+        border-color: var(--arsenic);
+    }
+        
+    .equals{
+        background-color: var(--blueberry);
+        color: var(--arsenic);
+        font-weight: bold;
+        font-size: 25px;
+    }
