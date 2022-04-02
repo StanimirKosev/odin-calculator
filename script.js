@@ -1,38 +1,40 @@
 function add(a,b){
-    return a+b;
+    return parseFloat(a) + parseFloat(b);
 };
 
 function subtract(a,b){
-    return a-b;
+    return parseFloat(a) - parseFloat(b);
 };
 
 function multiply(a,b){
-    return a*b;
+    return parseFloat(a) * parseFloat(b);
 };
 
 function divison(a,b){
-    return a/b;
+    return parseFloat(a) / parseFloat(b);
 };
 
-function operate(operator,a,b){
-    
+function operate(a,operator,b){
+    let result = 0;
     switch (operator){
         case '+':    
-            return add(a,b);
-        
+            result = add(a,b);
+            text.textContent = result;
+            break;
         case '-':
-            return subtract(a,b);
-           
+            result = subtract(a,b);
+            text.innerText = result;
+            break;
         case '*':
-            return multiply(a,b);
-        
+            result= multiply(a,b);
+            text.innerText = result;
+            break;
         case '/':
-            return divison(a,b);    
+            result = divison(a,b);    
+            text.innerText = result;
+            break;
+        }
     }
-
-}
-
-let displayValue = [];
 
 const calc = document.getElementById('calc');
 
@@ -154,8 +156,7 @@ const calc = document.getElementById('calc');
     equals.textContent = '=';
     calc.appendChild(equals).className = 'equals div1';
     equals.addEventListener("click",function(){
-        /*text.textContent= '=';
-        displayValue.push('='); */
+        clickEqueals();
     })
     
     const plus = document.createElement('button');
@@ -175,10 +176,40 @@ const txtNclear = document.getElementById('txtNclear');
     clear.textContent = 'AC';
     txtNclear.appendChild(clear).className = 'allClear operators';    
 
+let displayValue = [];
 
 function reduceTry(){
-    
+   
     const pls = displayValue.reduce((total,value) => {
        return text.innerText = total + value;
     },'');
 };
+
+function clickEqueals(){
+    
+  /**   const indexOperator = displayValue.findIndex(function(index) {
+        if (index === '+' ) {
+            return index - 1;
+        }
+        console.log(index);
+        console.log(displayValue);
+    });     */
+
+    let num1=0;
+    let num2=0;
+    let znak='';
+    num1 = displayValue[0];
+    znak = displayValue[1];
+    num2 = displayValue[2];
+    operate(num1,znak,num2);
+
+};
+
+/** problemite edin po edin , optimization , cleaning  
+ * 1. be able to use decimals , for that you need to do magic with the arrays 
+*/
+
+/** find index of operator
+ * concat everything on the left ( index of operator - 1) and thats your num1
+ * concat evertyhing on the right ( index of operator +1) and thats your num2
+ */
