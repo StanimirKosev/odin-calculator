@@ -16,24 +16,38 @@ function divison(a,b){
 
 function operate(a,operator,b){
     let result = 0;
+    
     switch (operator){
         case '+':    
             result = add(a,b);
-            text.textContent = result;
+            text.innerText = result;
+            displayValue = [];
+            displayValue.push(result);
+            reduceTry();    
             break;
         case '-':
             result = subtract(a,b);
             text.innerText = result;
+            displayValue = [];
+            displayValue.push(result);
+            reduceTry(); 
             break;
         case '*':
             result= multiply(a,b);
             text.innerText = result;
+            displayValue = [];
+            displayValue.push(result);
+            reduceTry();
             break;
         case '/':
             result = divison(a,b);    
             text.innerText = result;
+            displayValue = [];
+            displayValue.push(result);
+            reduceTry();
             break;
         }
+  
     }
 
 const calc = document.getElementById('calc');
@@ -157,6 +171,7 @@ const calc = document.getElementById('calc');
     calc.appendChild(equals).className = 'equals div1';
     equals.addEventListener("click",function(){
         clickEqueals();
+    
     })
     
     const plus = document.createElement('button');
@@ -175,6 +190,9 @@ const txtNclear = document.getElementById('txtNclear');
     const clear = document.createElement('button');
     clear.textContent = 'AC';
     txtNclear.appendChild(clear).className = 'allClear operators';    
+    clear.addEventListener("click",function(){
+        allClear();
+    })
 
 let displayValue = [];
 
@@ -186,30 +204,15 @@ function reduceTry(){
 };
 
 function clickEqueals(){
+
+    let operator = displayValue[1];
+    let num1 = displayValue[0];
+    let num2 = displayValue[2];
     
-  /**   const indexOperator = displayValue.findIndex(function(index) {
-        if (index === '+' ) {
-            return index - 1;
-        }
-        console.log(index);
-        console.log(displayValue);
-    });     */
-
-    let num1=0;
-    let num2=0;
-    let znak='';
-    num1 = displayValue[0];
-    znak = displayValue[1];
-    num2 = displayValue[2];
-    operate(num1,znak,num2);
-
+    operate(num1,operator,num2);
 };
 
-/** problemite edin po edin , optimization , cleaning  
- * 1. be able to use decimals , for that you need to do magic with the arrays 
-*/
-
-/** find index of operator
- * concat everything on the left ( index of operator - 1) and thats your num1
- * concat evertyhing on the right ( index of operator +1) and thats your num2
- */
+function allClear(){
+    displayValue=[];
+    text.innerText = displayValue;
+}
