@@ -57,10 +57,11 @@ function resultAppender(){
 function afterCalc(){
     
     displayValue = [{  
-      number1: result,
-      operator:'',
-      number2:'',   
-   }]; 
+        number1: result,
+        operator:'',
+        number2:'',   
+        result,
+    }]; 
 };
 
 
@@ -74,7 +75,7 @@ function displayTxt(){
 
 let result = 0;
 
-let displayValue = [{  
+let displayValue = [{  /** 1. PO nqkolko chisla da appendvash, da gi svurzvash 2. allClear butona 3. decimal butona- toi e kato chislo */
     number1:'',
     operator:'',
     number2:'',
@@ -89,11 +90,17 @@ let displayValue = [{
     calc.appendChild(seven).className = 'div1';
     seven.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '7';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '7'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '7'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '7'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '7'; 
             }
         });
     displayTxt();
@@ -104,11 +111,17 @@ let displayValue = [{
     calc.appendChild(eight).className = 'div1';
     eight.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '8';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '8'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '8'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '8'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '8'; 
             }
         });
     displayTxt();
@@ -119,11 +132,17 @@ let displayValue = [{
     calc.appendChild(nine).className = 'div1';
     nine.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '9';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '9'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '9'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '9'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '9'; 
             }
         });
     displayTxt();
@@ -146,11 +165,17 @@ let displayValue = [{
     calc.appendChild(four).className = 'div1';
     four.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '4';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '4'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '4'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '4'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '4'; 
             }
         });
     displayTxt();
@@ -161,11 +186,17 @@ let displayValue = [{
     calc.appendChild(five).className = 'div1';
     five.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '5';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '5'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '5'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '5'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '5'; 
             }
         });
     displayTxt();
@@ -176,11 +207,17 @@ let displayValue = [{
     calc.appendChild(six).className = 'div1';
     six.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '6';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '6'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '6'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '6'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '6'; 
             }
         });
     displayTxt();
@@ -204,11 +241,17 @@ let displayValue = [{
     calc.appendChild(three).className = 'div1';
     three.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '3';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '3'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '3'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '3'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '3'; 
             }
         });
     displayTxt();
@@ -219,11 +262,17 @@ let displayValue = [{
     calc.appendChild(two).className = 'div1';
     two.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '2';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '2'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '2'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '2'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '2'; 
             }
         });
     displayTxt();
@@ -235,11 +284,17 @@ let displayValue = [{
     calc.appendChild(one).className = 'div1';
     one.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '1';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '1'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '1'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '1'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '1'; 
             }
         });
     displayTxt();
@@ -262,11 +317,17 @@ let displayValue = [{
     calc.appendChild(zero).className = 'div1';
     zero.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.number1 === ''){ 
-                obj.number1 = '0';
-            }
-            if (obj.number1 !== '' && obj.operator !== ''){
-                obj.number2 = '0'; 
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '0'
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '0'
+                }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '0'; 
             }
         });
     displayTxt();
