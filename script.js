@@ -64,6 +64,16 @@ function afterCalc(){
     }]; 
 };
 
+function allClear(){
+
+    displayValue = [{
+        number1:'',
+        operator:'',
+        number2:'',
+        result
+    }];
+    displayTxt();
+};
 
 function displayTxt(){ 
    
@@ -75,7 +85,7 @@ function displayTxt(){
 
 let result = 0;
 
-let displayValue = [{  /**  2. allClear butona 3. decimal butona- toi e kato chislo */
+let displayValue = [{  /**  2. allClear butona  */
     number1:'',
     operator:'',
     number2:'',
@@ -353,7 +363,7 @@ let displayValue = [{  /**  2. allClear butona 3. decimal butona- toi e kato chi
             if (obj.operator !== ''){
                 obj.number2 += '.'; 
             }
-        decimal.disabled = true /** works only for 1 click, everything else works as it should be, like a number */
+        decimal.disabled = true 
         });
     displayTxt();
     })
@@ -391,7 +401,7 @@ const txtNclear = document.getElementById('txtNclear');
     clear.textContent = 'AC';
     txtNclear.appendChild(clear).className = 'allClear operators';    
     clear.addEventListener("click",function(){
-       /*** AllClear BUTTON  **************************/
+        allClear();
     })
 
 
