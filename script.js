@@ -75,7 +75,7 @@ function displayTxt(){
 
 let result = 0;
 
-let displayValue = [{  /** 1. PO nqkolko chisla da appendvash, da gi svurzvash 2. allClear butona 3. decimal butona- toi e kato chislo */
+let displayValue = [{  /**  2. allClear butona 3. decimal butona- toi e kato chislo */
     number1:'',
     operator:'',
     number2:'',
@@ -157,7 +157,8 @@ let displayValue = [{  /** 1. PO nqkolko chisla da appendvash, da gi svurzvash 2
                 obj.operator= '/';
             }
         });
-    displayTxt();
+        decimal.disabled = false
+        displayTxt();
     })
     
     const four = document.createElement('button');
@@ -232,7 +233,8 @@ let displayValue = [{  /** 1. PO nqkolko chisla da appendvash, da gi svurzvash 2
                 obj.operator = '*';
             }
         });
-    displayTxt();
+        decimal.disabled = false
+        displayTxt();
     })
 
 
@@ -309,7 +311,8 @@ let displayValue = [{  /** 1. PO nqkolko chisla da appendvash, da gi svurzvash 2
                 obj.operator = '-';
             }
         });
-    displayTxt();
+        decimal.disabled = false
+        displayTxt();
     })
 
     const zero = document.createElement('button');
@@ -337,7 +340,22 @@ let displayValue = [{  /** 1. PO nqkolko chisla da appendvash, da gi svurzvash 2
     decimal.textContent = '.';
     calc.appendChild(decimal).className = 'div1';
     decimal.addEventListener("click",function(){
-      /** DECIMAL'S *****************************************/
+        displayValue.forEach(function(obj){
+            if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
+                if (result == ''){
+                    obj.number1 += '.'   
+                }
+                if (result != ''){
+                    result= ''
+                    obj.number1 = '.'
+                    }
+            } 
+            if (obj.operator !== ''){
+                obj.number2 += '.'; 
+            }
+        decimal.disabled = true /** works only for 1 click, everything else works as it should be, like a number */
+        });
+    displayTxt();
     })
 
     const equals = document.createElement('button');
@@ -348,7 +366,8 @@ let displayValue = [{  /** 1. PO nqkolko chisla da appendvash, da gi svurzvash 2
         const mapAgain2 = displayValue.map(value => `${value.operator}`)
         const mapAgain3 = displayValue.map(value => `${value.number2}`)
         operate(mapAgain1 ,mapAgain2, mapAgain3);
-       })
+        decimal.disabled = false
+    })
     
     const plus = document.createElement('button');
     plus.textContent = '+';
@@ -359,7 +378,8 @@ let displayValue = [{  /** 1. PO nqkolko chisla da appendvash, da gi svurzvash 2
                 obj.operator = '+'
             }
         });
-    displayTxt();
+        decimal.disabled = false
+        displayTxt();
     })
 
 const txtNclear = document.getElementById('txtNclear');
