@@ -32,7 +32,7 @@ body{
     .allClear{
         border: 1px solid black; 
         border-radius: 8px; 
-        background-color: var(--arsenic);
+        background-color: var(--arsenic) ;
         border-color: var(--oldSilver);            
         text-align: center;    
         line-height: 50px;
@@ -52,8 +52,20 @@ body{
     }
         
     .equals{
-        background-color: var(--blueberry);
+        background-color: var(--blueberry) ;
         color: var(--arsenic);
         font-weight: bold;
         font-size: 25px;
+    }
+
+    .div1:hover{
+        background-color: var(--oldSilver) .9;
+    } 
+    
+    .operators:hover{
+      background-color: var(--arsenic) .9;
+    }
+    
+    .equals:hover{
+        background-color: #66a3ff ;
     }

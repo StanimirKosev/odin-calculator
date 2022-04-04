@@ -1,17 +1,21 @@
 function add(a,b){
-    return parseFloat(a) + parseFloat(b);
+    let num =(parseFloat(a) + parseFloat(b));
+    return num.toFixed(8);
 };
 
 function subtract(a,b){
-    return parseFloat(a) - parseFloat(b);
+    let num =(parseFloat(a) - parseFloat(b));
+    return num.toFixed(8);
 };
 
 function multiply(a,b){
-    return parseFloat(a) * parseFloat(b);
+    let num =(parseFloat(a) * parseFloat(b));
+    return num.toFixed(8);
 };
 
 function divison(a,b){
-    return parseFloat(a) / parseFloat(b);   
+    let num =(parseFloat(a) / parseFloat(b));
+    return num.toFixed(8);   
 };
 
 
@@ -64,6 +68,7 @@ function afterCalc(){
     }]; 
 };
 
+
 function allClear(){
 
     displayValue = [{
@@ -74,6 +79,7 @@ function allClear(){
     }];
     displayTxt();
 };
+
 
 function displayTxt(){ 
    
@@ -163,7 +169,7 @@ let displayValue = [{
     calc.appendChild(divide).className = 'operators';
     divide.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.operator === '' || obj.operator !== ''){ 
+            if ((obj.operator === '' || obj.operator !== '') && obj.number2 === ''){ 
                 obj.operator= '/';
             }
         });
@@ -239,7 +245,7 @@ let displayValue = [{
     calc.appendChild(asteriks).className = 'operators';
     asteriks.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.operator === '' || obj.operator !== ''){
+            if ((obj.operator === '' || obj.operator !== '') && obj.number2 === ''){
                 obj.operator = '*';
             }
         });
@@ -315,7 +321,7 @@ let displayValue = [{
     calc.appendChild(minus).className = 'operators';
     minus.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.operator === '' || obj.operator !== ''){ 
+            if ((obj.operator === '' || obj.operator !== '') && obj.number2 === ''){ 
                 obj.operator = '-';
             }
         });
@@ -386,7 +392,7 @@ let displayValue = [{
     calc.appendChild(plus).className = 'operators';
     plus.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.operator === '' || obj.operator !== ''){
+            if ((obj.operator === '' || obj.operator !== '') && obj.number2 === ''){
                 obj.operator = '+'
             }
         });
@@ -407,17 +413,13 @@ const txtNclear = document.getElementById('txtNclear');
         decimal.disabled = false
     })
 
+/** Things to impove:
+ * 1. Build operator precedence.
+ * 2. You can make it, if equals is entered with " 2 + " without a number2, to write 2 + to the screen and not error like now.
+ * 3. Add a backspace - deleting only the last input, not only everything like now.
+ * 4. Keyboard support
+ * 5. Remove the 2 parents, it can be done with just 1.
+ */
 
-/** do i need to do operator precedence ???  no
- * operators will be changing yes , dosent matter 
- * 
- * 1. round answers !!!
- * 2. 2 + da ne dava error 
- * 3. divison by zero  !!! 
- * 
- * extra credit :
- * from me : butonite da svetkat 
- * 
- * backspace but/ keyboard sup 
- * slojni raboti nqma da pravq, taq vecher prikluchvam s tebe  
-*/
+
+
