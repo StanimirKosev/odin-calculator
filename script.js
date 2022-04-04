@@ -1,21 +1,21 @@
 function add(a,b){
-    let num =(parseFloat(a) + parseFloat(b));
-    return num.toFixed(8);
+    
+    return (parseFloat(a) + parseFloat(b));
 };
 
 function subtract(a,b){
-    let num =(parseFloat(a) - parseFloat(b));
-    return num.toFixed(8);
+    
+    return (parseFloat(a) - parseFloat(b));
 };
 
 function multiply(a,b){
-    let num =(parseFloat(a) * parseFloat(b));
-    return num.toFixed(8);
+    
+    return (parseFloat(a) * parseFloat(b));
 };
 
 function divison(a,b){
-    let num =(parseFloat(a) / parseFloat(b));
-    return num.toFixed(8);   
+    
+    return (parseFloat(a) / parseFloat(b));
 };
 
 
@@ -419,6 +419,7 @@ const txtNclear = document.getElementById('txtNclear');
  * 3. Add a backspace - deleting only the last input, not only everything like now.
  * 4. Keyboard support
  * 5. Remove the 2 parents, it can be done with just 1.
+ * 6. Add rounding
  */
 
 
