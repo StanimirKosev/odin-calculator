@@ -11,7 +11,7 @@ function multiply(a,b){
 };
 
 function divison(a,b){
-    return parseFloat(a) / parseFloat(b);
+    return parseFloat(a) / parseFloat(b);   
 };
 
 
@@ -85,7 +85,7 @@ function displayTxt(){
 
 let result = 0;
 
-let displayValue = [{  /**  2. allClear butona  */
+let displayValue = [{  
     number1:'',
     operator:'',
     number2:'',
@@ -163,7 +163,7 @@ let displayValue = [{  /**  2. allClear butona  */
     calc.appendChild(divide).className = 'operators';
     divide.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.operator === ''){ 
+            if (obj.operator === '' || obj.operator !== ''){ 
                 obj.operator= '/';
             }
         });
@@ -239,7 +239,7 @@ let displayValue = [{  /**  2. allClear butona  */
     calc.appendChild(asteriks).className = 'operators';
     asteriks.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.operator === ''){ 
+            if (obj.operator === '' || obj.operator !== ''){
                 obj.operator = '*';
             }
         });
@@ -247,23 +247,22 @@ let displayValue = [{  /**  2. allClear butona  */
         displayTxt();
     })
 
-
-    const three = document.createElement('button');
-    three.textContent = '3';
-    calc.appendChild(three).className = 'div1';
-    three.addEventListener("click",function(){
+    const one = document.createElement('button');
+    one.textContent = '1';
+    calc.appendChild(one).className = 'div1';
+    one.addEventListener("click",function(){
         displayValue.forEach(function(obj){
             if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
                 if (result == ''){
-                    obj.number1 += '3'
+                    obj.number1 += '1'
                 }
                 if (result != ''){
                     result= ''
-                    obj.number1 = '3'
+                    obj.number1 = '1'
                 }
             } 
             if (obj.operator !== ''){
-                obj.number2 += '3'; 
+                obj.number2 += '1'; 
             }
         });
     displayTxt();
@@ -290,34 +289,33 @@ let displayValue = [{  /**  2. allClear butona  */
     displayTxt();
     })
 
-
-    const one = document.createElement('button');
-    one.textContent = '1';
-    calc.appendChild(one).className = 'div1';
-    one.addEventListener("click",function(){
+    const three = document.createElement('button');
+    three.textContent = '3';
+    calc.appendChild(three).className = 'div1';
+    three.addEventListener("click",function(){
         displayValue.forEach(function(obj){
             if ((obj.number1 === '' || obj.number1 !== '' ) && obj.operator === ''){ 
                 if (result == ''){
-                    obj.number1 += '1'
+                    obj.number1 += '3'
                 }
                 if (result != ''){
                     result= ''
-                    obj.number1 = '1'
+                    obj.number1 = '3'
                 }
             } 
             if (obj.operator !== ''){
-                obj.number2 += '1'; 
+                obj.number2 += '3'; 
             }
         });
     displayTxt();
     })
-    
+ 
     const minus = document.createElement('button');
     minus.textContent = '-';
     calc.appendChild(minus).className = 'operators';
     minus.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.operator === ''){ 
+            if (obj.operator === '' || obj.operator !== ''){ 
                 obj.operator = '-';
             }
         });
@@ -377,6 +375,10 @@ let displayValue = [{  /**  2. allClear butona  */
         const mapAgain3 = displayValue.map(value => `${value.number2}`)
         operate(mapAgain1 ,mapAgain2, mapAgain3);
         decimal.disabled = false
+        if (mapAgain2 == '/' && mapAgain3 == '0'){
+            allClear();
+            text.innerText = "Divison by zero";
+        }
     })
     
     const plus = document.createElement('button');
@@ -384,7 +386,7 @@ let displayValue = [{  /**  2. allClear butona  */
     calc.appendChild(plus).className = 'operators';
     plus.addEventListener("click",function(){
         displayValue.forEach(function(obj){
-            if (obj.operator === ''){
+            if (obj.operator === '' || obj.operator !== ''){
                 obj.operator = '+'
             }
         });
@@ -402,6 +404,20 @@ const txtNclear = document.getElementById('txtNclear');
     txtNclear.appendChild(clear).className = 'allClear operators';    
     clear.addEventListener("click",function(){
         allClear();
+        decimal.disabled = false
     })
 
 
+/** do i need to do operator precedence ???  no
+ * operators will be changing yes , dosent matter 
+ * 
+ * 1. round answers !!!
+ * 2. 2 + da ne dava error 
+ * 3. divison by zero  !!! 
+ * 
+ * extra credit :
+ * from me : butonite da svetkat 
+ * 
+ * backspace but/ keyboard sup 
+ * slojni raboti nqma da pravq, taq vecher prikluchvam s tebe  
+*/
